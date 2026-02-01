@@ -15,7 +15,7 @@ ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))     # твой Telegram ID (для у
 
 DATA_FILE = "data.json"
 
-bot = Bot(token=TOKEN)
+bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher(bot)
 
 # UC пакеты и цены
