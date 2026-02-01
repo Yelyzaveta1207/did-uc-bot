@@ -197,4 +197,19 @@ async def history(message: types.Message):
     await message.answer("\n".join(text))
 
 if __name__ == "__main__":
-    executor.start_polling(dp, skip_updates=True)
+    executorx.start_polling(dp, skip_updates=True)
+import os
+from threading import Thread
+from http.server import HTTPServer, BaseHTTPRequestHandler
+
+class Handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"ok")
+
+def run_web():
+    port = int(os.environ.get("PORT", "10000"))
+    HTTPServer(("0.0.0.0", port), Handler).serve_forever()
+
+Thread(target=run_web, daemon=True).start()
