@@ -7,13 +7,11 @@ from aiogram.types import (
     InlineKeyboardMarkup, InlineKeyboardButton
 )
 
-TOKEN = os.getenv("BOT_TOKEN")                 # токен будет в Render
+BOT-TOKEN = "8522618996:AAG6J0isHcmTLYk-IbpRzwx7lnd9YDhLdJg"         # токен будет в Render
 PAYMENT_LINK = os.getenv("PAYMENT_LINK", "")   # ссылка на оплату (mono)
 PAYMENT_TEXT = os.getenv("PAYMENT_TEXT", "")   # реквизиты текстом (если нужно)
 ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))     # твой Telegram ID (для уведомлений)
 
-if not TOKEN:
-    raise RuntimeError("BOT_TOKEN is not set")
 
 DATA_FILE = "data.json"
 
