@@ -197,7 +197,7 @@ async def history(message: types.Message):
     await message.answer("\n".join(text))
 
 if __name__ == "__main__":
-    executorx.start_polling(dp, skip_updates=True)
+    executor.start_polling(dp, skip_updates=True)
 import os
 from threading import Thread
 from http.server import HTTPServer, BaseHTTPRequestHandler
