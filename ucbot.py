@@ -213,3 +213,18 @@ def run_web():
     HTTPServer(("0.0.0.0", port), Handler).serve_forever()
 
 Thread(target=run_web, daemon=True).start()
+import os
+import threading
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+class _Handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"ok")
+
+def _run_health_server():
+    port = int(os.environ.get("PORT", "10000"))
+    HTTPServer(("0.0.0.0", port), _Handler).serve_forever()
+
+threading.Thread(target=_run_health_server, daemon=True).start()
